@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'FirstyearScreen.dart';
+import 'SecondyearScreen.dart';
+import 'Indexvariable.dart';
 
 
 void main() {
   runApp(const MyApp());
 }
 
-var pageIndex=0;
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
 
 
         appBar: AppBar(
-          title: const Text('SGPA Calculator'),
+          title: const Text('SGPA Calculator - Vishist N. Bhagabati'),
           backgroundColor:Color.fromRGBO(117, 26, 255, 1) ,
         ),
 
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
         body: Stack(
           children: [
             FirstyearScreen(),
-            // SecondyearScreen(),
+            SecondyearScreen(),
             // ThirdyearScreen(),
           ],
         ),
@@ -95,7 +97,7 @@ class _BottomNavigationBar1State extends State<BottomNavigationBar1> {
                     selected: _selectedIndex==1,
                     onPressed: (){
                       setState(() {
-                        _selectedIndex=1;
+                        // _selectedIndex=1;
                         pageIndex=_selectedIndex;
                         print(pageIndex);
                       });
@@ -108,7 +110,7 @@ class _BottomNavigationBar1State extends State<BottomNavigationBar1> {
                     selected: _selectedIndex==2,
                     onPressed: (){
                       setState(() {
-                        _selectedIndex=2;
+                        // _selectedIndex=2;
                         pageIndex=_selectedIndex;
                         print(pageIndex);
                       });

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+bool gisvis1=true;
+
 class FirstyearScreen extends StatefulWidget {
   const FirstyearScreen({Key? key}) : super(key: key);
 
@@ -169,13 +171,13 @@ class _FirstyearScreenState extends State<FirstyearScreen> {
     String? selectedSubject5=' ';
     String? selectedSubject6=' ';
     String? selectedSubject7=' ';
-    List<String> grades1=[' ','A/A+','A-','B','B-','C','C-','D'];
-    List<String> grades2=[' ','A/A+','A-','B','B-','C','C-','D'];
-    List<String> grades3=[' ','A/A+','A-','B','B-','C','C-','D'];
-    List<String> grades4=[' ','A/A+','A-','B','B-','C','C-','D'];
-    List<String> grades5=[' ','A/A+','A-','B','B-','C','C-','D'];
-    List<String> grades6=[' ','A/A+','A-','B','B-','C','C-','D'];
-    List<String> grades7=[' ','A/A+','A-','B','B-','C','C-','D'];
+    List<String> grades1=[' ','A/A+','A-','B','B-','C','C-'];
+    List<String> grades2=[' ','A/A+','A-','B','B-','C','C-'];
+    List<String> grades3=[' ','A/A+','A-','B','B-','C','C-'];
+    List<String> grades4=[' ','A/A+','A-','B','B-','C','C-'];
+    List<String> grades5=[' ','A/A+','A-','B','B-','C','C-'];
+    List<String> grades6=[' ','A/A+','A-','B','B-','C','C-'];
+    List<String> grades7=[' ','A/A+','A-','B','B-','C','C-'];
     String? selectedGrade1=' ';
     String? selectedGrade2=' ';
     String? selectedGrade3=' ';
@@ -183,422 +185,429 @@ class _FirstyearScreenState extends State<FirstyearScreen> {
     String? selectedGrade5=' ';
     String? selectedGrade6=' ';
     String? selectedGrade7=' ';
+    
+
   @override
   Widget build(BuildContext context) {
-    return(
-      AnimatedContainer(
-        padding: EdgeInsets.only(left:15,right:15),
-        color: Color.fromRGBO(117, 26, 255, 0.2),
-        duration: const Duration(milliseconds: 500),
-        child: Visibility(
-          child: Column(
-            children: [
-
-// row1
-              Row(
-                children: [
-                  SizedBox(height: 90,),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 250, maxHeight: 60 ),
-                    child: DropdownButtonFormField<String>(
-                      menuMaxHeight: 150,
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: false,
-                      value: selectedSubject1,
-                      items: subjects1.map((subject1) => DropdownMenuItem<String>(
-                        value:subject1,
-                        child: Text(subject1, style: const TextStyle(fontSize: 14)),
-                         )
-                      ).toList(), 
-                      onChanged: (subject1) => setState(() => {
-                        selectedSubject1=subject1,
-                        ss1st1=subject1,
-                        print(selectedSubject1)
-                        })
-                      ),
-                  ),
-        
-                    // Grades Dropdown
+    return Visibility(
+      visible: gisvis1,
+      child: (
+        AnimatedContainer(
+          padding: EdgeInsets.only(left:15,right:15),
+          color: Color.fromRGBO(117, 26, 255, 0.2),
+          duration: const Duration(milliseconds: 500),
+          child: Visibility(
+            child: Column(
+              children: [
+    
+    // row1
+                Row(
+                  children: [
+                    SizedBox(height: 90,),
                     ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 100, maxHeight: 60),
+                      constraints: BoxConstraints(maxWidth: 250, maxHeight: 60 ),
                       child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: false,
-                      value: selectedGrade1,
-                      items: grades1.map((grade1) => DropdownMenuItem<String>(
-                        value:grade1,
-                        child: Text(grade1, style: const TextStyle(fontSize: 18)),
+                        menuMaxHeight: 150,
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (grade1) => setState(() => {
-                        selectedGrade1=grade1,
-                        sg1st1=grade1,
-                        print(selectedGrade1)
-                        })
-                      ),
+                        ),
+                        isExpanded: false,
+                        value: selectedSubject1,
+                        items: subjects1.map((subject1) => DropdownMenuItem<String>(
+                          value:subject1,
+                          child: Text(subject1, style: const TextStyle(fontSize: 14)),
+                           )
+                        ).toList(), 
+                        onChanged: (subject1) => setState(() => {
+                          selectedSubject1=subject1,
+                          ss1st1=subject1,
+                          print(selectedSubject1)
+                          })
+                        ),
                     ),
-                ],
-              ),
-
-// row2
-              Row(
-                children: [
-                  SizedBox(height: 70,),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 250, maxHeight: 60 ),
-                    child: DropdownButtonFormField<String>(
-                      menuMaxHeight: 150,
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedSubject2,
-                      items: subjects2.map((subject2) => DropdownMenuItem<String>(
-                        value:subject2,
-                        child: Text(subject2, style: const TextStyle(fontSize: 18)),
+          
+                      // Grades Dropdown
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 100, maxHeight: 60),
+                        child: DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (subject2) => setState(() => {
-                        selectedSubject2=subject2,
-                        ss1st2=subject2,
-                        print(selectedSubject2)
-                        })
+                        ),
+                        isExpanded: false,
+                        value: selectedGrade1,
+                        items: grades1.map((grade1) => DropdownMenuItem<String>(
+                          value:grade1,
+                          child: Text(grade1, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (grade1) => setState(() => {
+                          selectedGrade1=grade1,
+                          sg1st1=grade1,
+                          print(selectedGrade1)
+                          })
+                        ),
                       ),
-                  ),
-        
-                    // Grades Dropdown
+                  ],
+                ),
+    
+    // row2
+                Row(
+                  children: [
+                    SizedBox(height: 70,),
                     ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60),
+                      constraints: BoxConstraints(maxWidth: 250, maxHeight: 60 ),
                       child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedGrade2,
-                      items: grades2.map((grade2) => DropdownMenuItem<String>(
-                        value:grade2,
-                        child: Text(grade2, style: const TextStyle(fontSize: 18)),
+                        menuMaxHeight: 150,
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (grade2) => setState(() => {
-                        selectedGrade2=grade2,
-                        sg1st2=grade2,
-                        print(selectedGrade2)
-                        })
-                      ),
+                        ),
+                        isExpanded: true,
+                        value: selectedSubject2,
+                        items: subjects2.map((subject2) => DropdownMenuItem<String>(
+                          value:subject2,
+                          child: Text(subject2, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (subject2) => setState(() => {
+                          selectedSubject2=subject2,
+                          ss1st2=subject2,
+                          print(selectedSubject2)
+                          })
+                        ),
                     ),
-                ],
-              ),
-// row 3
-              Row(
-                children: [
-                  SizedBox(height: 70,),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 250 , maxHeight: 60),
-                    child: DropdownButtonFormField<String>(
-                      menuMaxHeight: 150,
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedSubject3,
-                      items: subjects3.map((subject3) => DropdownMenuItem<String>(
-                        value:subject3,
-                        child: Text(subject3, style: const TextStyle(fontSize: 18)),
+          
+                      // Grades Dropdown
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60),
+                        child: DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (subject3) => setState(() => {
-                        selectedSubject3=subject3,
-                        ss1st3=subject3,
-                        print(selectedSubject3)
-                        })
+                        ),
+                        isExpanded: true,
+                        value: selectedGrade2,
+                        items: grades2.map((grade2) => DropdownMenuItem<String>(
+                          value:grade2,
+                          child: Text(grade2, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (grade2) => setState(() => {
+                          selectedGrade2=grade2,
+                          sg1st2=grade2,
+                          print(selectedGrade2)
+                          })
+                        ),
                       ),
-                  ),
-        
-                    // Grades Dropdown
+                  ],
+                ),
+    // row 3
+                Row(
+                  children: [
+                    SizedBox(height: 70,),
                     ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60),
+                      constraints: BoxConstraints(maxWidth: 250 , maxHeight: 60),
                       child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedGrade3,
-                      items: grades3.map((grade3) => DropdownMenuItem<String>(
-                        value:grade3,
-                        child: Text(grade3, style: const TextStyle(fontSize: 18)),
+                        menuMaxHeight: 150,
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (grade3) => setState(() => {
-                        selectedGrade3=grade3,
-                        sg1st3=grade3,
-                        print(selectedGrade3)
-                        })
-                      ),
+                        ),
+                        isExpanded: true,
+                        value: selectedSubject3,
+                        items: subjects3.map((subject3) => DropdownMenuItem<String>(
+                          value:subject3,
+                          child: Text(subject3, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (subject3) => setState(() => {
+                          selectedSubject3=subject3,
+                          ss1st3=subject3,
+                          print(selectedSubject3)
+                          })
+                        ),
                     ),
-                ],
-              ),
-// row 4
-              Row(
-                children: [
-                  SizedBox(height: 70,),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 250 , maxHeight: 60),
-                    child: DropdownButtonFormField<String>(
-                      menuMaxHeight: 150,
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedSubject4,
-                      items: subjects4.map((subject4) => DropdownMenuItem<String>(
-                        value:subject4,
-                        child: Text(subject4, style: const TextStyle(fontSize: 18)),
+          
+                      // Grades Dropdown
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60),
+                        child: DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (subject4) => setState(() => {
-                        selectedSubject4=subject4,
-                        ss1st4=subject4,
-                        print(selectedSubject4)
-                        })
+                        ),
+                        isExpanded: true,
+                        value: selectedGrade3,
+                        items: grades3.map((grade3) => DropdownMenuItem<String>(
+                          value:grade3,
+                          child: Text(grade3, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (grade3) => setState(() => {
+                          selectedGrade3=grade3,
+                          sg1st3=grade3,
+                          print(selectedGrade3)
+                          })
+                        ),
                       ),
-                  ),
-        
-                    // Grades Dropdown
+                  ],
+                ),
+    // row 4
+                Row(
+                  children: [
+                    SizedBox(height: 70,),
                     ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60) ,
+                      constraints: BoxConstraints(maxWidth: 250 , maxHeight: 60),
                       child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedGrade4,
-                      items: grades4.map((grade4) => DropdownMenuItem<String>(
-                        value:grade4,
-                        child: Text(grade4, style: const TextStyle(fontSize: 18)),
+                        menuMaxHeight: 150,
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (grade4) => setState(() => {
-                        selectedGrade4=grade4,
-                        sg1st4=grade4,
-                        print(selectedGrade4)
-                        })
-                      ),
+                        ),
+                        isExpanded: true,
+                        value: selectedSubject4,
+                        items: subjects4.map((subject4) => DropdownMenuItem<String>(
+                          value:subject4,
+                          child: Text(subject4, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (subject4) => setState(() => {
+                          selectedSubject4=subject4,
+                          ss1st4=subject4,
+                          print(selectedSubject4)
+                          })
+                        ),
                     ),
-                ],
-              ),
-
-// row5
-              Row(
-                children: [
-                  SizedBox(height: 70,),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 250 , maxHeight: 60),
-                    child: DropdownButtonFormField<String>(
-                      menuMaxHeight: 150,
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedSubject5,
-                      items: subjects5.map((subject5) => DropdownMenuItem<String>(
-                        value:subject5,
-                        child: Text(subject5, style: const TextStyle(fontSize: 18)),
+          
+                      // Grades Dropdown
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60) ,
+                        child: DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (subject5) => setState(() => {
-                        selectedSubject5=subject5,
-                        ss1st5=subject5,
-                        print(selectedSubject5)
-                        })
+                        ),
+                        isExpanded: true,
+                        value: selectedGrade4,
+                        items: grades4.map((grade4) => DropdownMenuItem<String>(
+                          value:grade4,
+                          child: Text(grade4, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (grade4) => setState(() => {
+                          selectedGrade4=grade4,
+                          sg1st4=grade4,
+                          print(selectedGrade4)
+                          })
+                        ),
                       ),
-                  ),
-        
-                    // Grades Dropdown
+                  ],
+                ),
+    
+    // row5
+                Row(
+                  children: [
+                    SizedBox(height: 70,),
                     ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60),
+                      constraints: BoxConstraints(maxWidth: 250 , maxHeight: 60),
                       child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedGrade5,
-                      items: grades5.map((grade5) => DropdownMenuItem<String>(
-                        value:grade5,
-                        child: Text(grade5, style: const TextStyle(fontSize: 18)),
+                        menuMaxHeight: 150,
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (grade5) => setState(() => {
-                        selectedGrade5=grade5,
-                        sg1st5=grade5,
-                        print(selectedGrade5)
-                        })
-                      ),
+                        ),
+                        isExpanded: true,
+                        value: selectedSubject5,
+                        items: subjects5.map((subject5) => DropdownMenuItem<String>(
+                          value:subject5,
+                          child: Text(subject5, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (subject5) => setState(() => {
+                          selectedSubject5=subject5,
+                          ss1st5=subject5,
+                          print(selectedSubject5)
+                          })
+                        ),
                     ),
-                ],
-              ),
-
-// row 6
-              Row(
-                children: [
-                  SizedBox(height: 80,),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 250 , maxHeight: 60),
-                    child: DropdownButtonFormField<String>(
-                      menuMaxHeight: 150,
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedSubject6,
-                      items: subjects6.map((subject6) => DropdownMenuItem<String>(
-                        value:subject6,
-                        child: Text(subject6, style: const TextStyle(fontSize: 18)),
+          
+                      // Grades Dropdown
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60),
+                        child: DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (subject6) => setState(() => {
-                        selectedSubject6=subject6,
-                        ss1st6=subject6,
-                        print(selectedSubject6)
-                        })
+                        ),
+                        isExpanded: true,
+                        value: selectedGrade5,
+                        items: grades5.map((grade5) => DropdownMenuItem<String>(
+                          value:grade5,
+                          child: Text(grade5, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (grade5) => setState(() => {
+                          selectedGrade5=grade5,
+                          sg1st5=grade5,
+                          print(selectedGrade5)
+                          })
+                        ),
                       ),
-                  ),
-        
-                    // Grades Dropdown
+                  ],
+                ),
+    
+    // row 6
+                Row(
+                  children: [
+                    SizedBox(height: 80,),
                     ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60),
+                      constraints: BoxConstraints(maxWidth: 250 , maxHeight: 60),
                       child: DropdownButtonFormField<String>(
-                      menuMaxHeight: 150,
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedGrade6,
-                      items: grades1.map((grade6) => DropdownMenuItem<String>(
-                        value:grade6,
-                        child: Text(grade6, style: const TextStyle(fontSize: 18)),
+                        menuMaxHeight: 150,
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (grade6) => setState(() => {
-                        selectedGrade6=grade6,
-                        sg1st6=grade6,
-                        print(selectedGrade6)
-                        })
-                      ),
+                        ),
+                        isExpanded: true,
+                        value: selectedSubject6,
+                        items: subjects6.map((subject6) => DropdownMenuItem<String>(
+                          value:subject6,
+                          child: Text(subject6, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (subject6) => setState(() => {
+                          selectedSubject6=subject6,
+                          ss1st6=subject6,
+                          print(selectedSubject6)
+                          })
+                        ),
                     ),
-                ],
-              ),
-
-// row 7
-              Row(
-                children: [
-                  SizedBox(height: 70,),
-                  ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 250 , maxHeight: 60),
-                    child: DropdownButtonFormField<String>(
-                      menuMaxHeight: 150,
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedSubject7,
-                      items: subjects7.map((subject7) => DropdownMenuItem<String>(
-                        value:subject7,
-                        child: Text(subject7, style: const TextStyle(fontSize: 18)),
+          
+                      // Grades Dropdown
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60),
+                        child: DropdownButtonFormField<String>(
+                        menuMaxHeight: 150,
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (subject7) => setState(() => {
-                        selectedSubject7=subject7,
-                        ss1st7=subject7,
-                        print(selectedSubject7)
-                        })
+                        ),
+                        isExpanded: true,
+                        value: selectedGrade6,
+                        items: grades1.map((grade6) => DropdownMenuItem<String>(
+                          value:grade6,
+                          child: Text(grade6, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (grade6) => setState(() => {
+                          selectedGrade6=grade6,
+                          sg1st6=grade6,
+                          print(selectedGrade6)
+                          })
+                        ),
                       ),
-                  ),
-        
-                    // Grades Dropdown
+                  ],
+                ),
+    
+    // row 7
+                Row(
+                  children: [
+                    SizedBox(height: 70,),
                     ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60),
+                      constraints: BoxConstraints(maxWidth: 250 , maxHeight: 60),
                       child: DropdownButtonFormField<String>(
-                      decoration: InputDecoration(
-                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 2 , color: Colors.blue)
-                       )
-                      ),
-                      isExpanded: true,
-                      value: selectedGrade7,
-                      items: grades7.map((grade7) => DropdownMenuItem<String>(
-                        value:grade7,
-                        child: Text(grade7, style: const TextStyle(fontSize: 18)),
+                        menuMaxHeight: 150,
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
                          )
-                      ).toList(), 
-                      onChanged: (grade7) => setState(() => {
-                        selectedGrade7=grade7,
-                        sg1st7=grade7,
-                        print(selectedGrade7)
-                        })
-                      ),
+                        ),
+                        isExpanded: true,
+                        value: selectedSubject7,
+                        items: subjects7.map((subject7) => DropdownMenuItem<String>(
+                          value:subject7,
+                          child: Text(subject7, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (subject7) => setState(() => {
+                          selectedSubject7=subject7,
+                          ss1st7=subject7,
+                          print(selectedSubject7)
+                          })
+                        ),
                     ),
-                ],
-              ),
-              Row(
-                children:[
+          
+                      // Grades Dropdown
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 100 , maxHeight: 60),
+                        child: DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                         enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 2 , color: Colors.blue)
+                         )
+                        ),
+                        isExpanded: true,
+                        value: selectedGrade7,
+                        items: grades7.map((grade7) => DropdownMenuItem<String>(
+                          value:grade7,
+                          child: Text(grade7, style: const TextStyle(fontSize: 18)),
+                           )
+                        ).toList(), 
+                        onChanged: (grade7) => setState(() => {
+                          selectedGrade7=grade7,
+                          sg1st7=grade7,
+                          print(selectedGrade7)
+                          })
+                        ),
+                      ),
+                  ],
+                ),
+                Row(
+                  children:[
+                    
+                    // const ElevatedButton(
+                    // child: Text('Calculate SGPA'),
+                    // onPressed: getSGPA
+                    // ),
+    
+                    ElevatedButton(
+                    child: Text('Show SGPA'),
+                    onPressed: (){
+                      getSGPA();
+                      setState(() {
+                        localSGPA=SGPA;
+                      });
+                    }
+                    )
+                  ]
+                ),
+                Row(
                   
-                  // const ElevatedButton(
-                  // child: Text('Calculate SGPA'),
-                  // onPressed: getSGPA
-                  // ),
-
-                  ElevatedButton(
-                  child: Text('Show SGPA'),
-                  onPressed: (){
-                    getSGPA();
-                    setState(() {
-                      localSGPA=SGPA;
-                    });
-                  }
-                  )
-                ]
-              ),
-              Row(
-                
-                children: [
-                  Text('Your estimated SGPA  $localSGPA',)
-                ],
-              )
-            ],
+                  children: [
+                    Text('Your estimated SGPA  $localSGPA',
+                    style: TextStyle(fontSize: 25),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
-        ),
-      )
+        )
+      ),
     );
   }
 }
